@@ -153,7 +153,18 @@ export function createCoreApp(opts: CoreAppOptions): Hono<AppEnv> {
       await next();
       if (c.res.status === 200) c.header("Cache-Control", "public, max-age=31536000, immutable");
     });
-    app.use("*", serveStatic({ root, rewriteRequestPath: (p) => (p === "/" ? "/index.html" : p) }));
+    app.use(
+      "*",
+      serveStatic({
+        root,
+        rewriteRequestPath: (p) => {
+          if (p === "/") return "/index.html";
+          // Folder pages, e.g. /tools/rfq-builder -> /tools/rfq-builder/index.html
+          if (!/\.[a-z0-9]+$/i.test(p) && existsSync(join(root, p, "index.html"))) return `${p.replace(/\/$/, "")}/index.html`;
+          return p;
+        },
+      }),
+    );
     app.get("*", (c) => {
       const file = existsSync(appHtml) ? appHtml : indexHtml;
       c.header("Cache-Control", "no-cache");

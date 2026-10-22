@@ -8,7 +8,7 @@ import { buildQuoteRunnerApp } from "./app";
 import { quoteRunnerMigrations } from "./migrations";
 import { sendDueReminders } from "./reminders";
 
-loadDotEnv();
+loadDotEnv(".env.quoterunner", ".env");
 const env = loadEnv(process.env, { port: 8101, dataDir: "data/quoterunner" });
 const ctx = createCoreContext({ env, product: quoteRunnerProduct, migrations: quoteRunnerMigrations });
 

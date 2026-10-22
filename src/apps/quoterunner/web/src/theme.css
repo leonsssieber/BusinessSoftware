@@ -1,0 +1,103 @@
+@import "tailwindcss" source(none);
+@source "../";
+@source "../../../../ui";
+@import "../../../../ui/styles/kit.css";
+
+/*
+ * QuoteRunner: the purchasing desk's paperwork. Carbon-copy blue for actions, graphite ink on
+ * cool paper, and highlighter yellow for the lowest bid, the way buyers mark printed quotes.
+ * Display: Archivo (signage width), body: IBM Plex Sans, figures: IBM Plex Mono.
+ */
+:root {
+  --k-bg: #f3f4f7;
+  --k-surface: #ffffff;
+  --k-surface-2: #eceff4;
+  --k-fg: #1a1f28;
+  --k-muted: #5b6474;
+  --k-line: #dde1e8;
+  --k-line-strong: #c6ccd7;
+  --k-brand: #2a4a9b;
+  --k-brand-fg: #ffffff;
+  --k-brand-soft: #e5ebf8;
+  --k-brand-ink: #24408a;
+  --k-accent: #f4cf2a;
+  --k-accent-soft: #fff3b8;
+  --k-good: #1b7744;
+  --k-good-soft: #e2f2e8;
+  --k-warn: #955800;
+  --k-warn-soft: #fbeed6;
+  --k-bad: #b42318;
+  --k-bad-soft: #fbe4e1;
+  --k-focus: #3a5fc4;
+  --k-radius: 5px;
+  --k-font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --k-font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --k-font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --k-bg: #0e1116;
+    --k-surface: #151920;
+    --k-surface-2: #1c2129;
+    --k-fg: #e6e9ef;
+    --k-muted: #98a1b0;
+    --k-line: #252b34;
+    --k-line-strong: #333a46;
+    --k-brand: #7f9cff;
+    --k-brand-fg: #0b1330;
+    --k-brand-soft: #1b2646;
+    --k-brand-ink: #aabdff;
+    --k-accent: #f2d24a;
+    --k-accent-soft: #393214;
+    --k-good: #5dcf8c;
+    --k-good-soft: #12271a;
+    --k-warn: #f0b24d;
+    --k-warn-soft: #2c230f;
+    --k-bad: #ff8b80;
+    --k-bad-soft: #321615;
+    --k-focus: #a3b6ff;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --k-bg: #0e1116;
+  --k-surface: #151920;
+  --k-surface-2: #1c2129;
+  --k-fg: #e6e9ef;
+  --k-muted: #98a1b0;
+  --k-line: #252b34;
+  --k-line-strong: #333a46;
+  --k-brand: #7f9cff;
+  --k-brand-fg: #0b1330;
+  --k-brand-soft: #1b2646;
+  --k-brand-ink: #aabdff;
+  --k-accent: #f2d24a;
+  --k-accent-soft: #393214;
+  --k-good: #5dcf8c;
+  --k-good-soft: #12271a;
+  --k-warn: #f0b24d;
+  --k-warn-soft: #2c230f;
+  --k-bad: #ff8b80;
+  --k-bad-soft: #321615;
+  --k-focus: #a3b6ff;
+  color-scheme: dark;
+}
+
+h1,
+h2,
+h3 {
+  font-stretch: 92%;
+}
+
+@media print {
+  :root {
+    --k-bg: #ffffff;
+    --k-surface: #ffffff;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

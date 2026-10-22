@@ -44,3 +44,9 @@ export function relative(value: string | Date | null | undefined, now = new Date
 export function plural(n: number, one: string, many = `${one}s`): string {
   return `${n} ${n === 1 ? one : many}`;
 }
+
+/** A price as text for an input: whole cents keep two decimals (2.40), finer prices stay exact (0.125). */
+export function priceInput(value: number | null | undefined): string {
+  if (value === null || value === undefined) return "";
+  return Math.abs(value * 100 - Math.round(value * 100)) < 1e-9 ? value.toFixed(2) : String(value);
+}

@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>QuoteRunner: get every supplier's price side by side</title>
+    <meta
+      name="description"
+      content="QuoteRunner emails your material list to all your suppliers, collects their prices from a quote link, email or PDF, and shows the cheapest way to buy, freight included. Free for 3 requests a month."
+    />
+    <meta property="og:title" content="QuoteRunner: every supplier's price, side by side" />
+    <meta property="og:description" content="Send one request to all your suppliers. Compare prices, lead times and freight in one table. Award and send purchase orders in a click." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="./src/theme.css" />
+    <script src="/theme-init.js"></script>
+  </head>
+  <body class="bg-bg text-fg">
+    <header class="border-b border-line bg-surface" style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 py-3">
+        <a href="/" class="inline-flex items-center gap-2.5" aria-label="QuoteRunner home">
+          <svg class="size-7" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="var(--k-brand)" /><rect x="7" y="8" width="18" height="3" rx="1" fill="var(--k-brand-fg)" /><rect x="7" y="14.5" width="18" height="3" rx="1" fill="var(--k-accent)" /><rect x="7" y="21" width="11" height="3" rx="1" fill="var(--k-brand-fg)" /></svg>
+          <span class="font-display text-lg font-bold tracking-tight" style="font-stretch: 88%">QuoteRunner</span>
+        </a>
+        <div class="hidden items-center gap-6 text-sm text-muted md:flex">
+          <a href="#how" class="hover:text-fg">How it works</a>
+          <a href="#pricing" class="hover:text-fg">Pricing</a>
+          <a href="/tools/rfq-builder" class="hover:text-fg">Free list cleaner</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="/login" class="hidden rounded-ui px-3 py-2 text-sm font-medium hover:bg-surface-2 sm:inline-block">Sign in</a>
+          <a href="/signup" class="inline-flex h-9 items-center rounded-ui bg-brand px-4 text-sm font-medium text-brand-fg hover:bg-brand/88">Start free</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+        <div class="mx-auto grid max-w-6xl items-center gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:py-20">
+          <div>
+            <p class="eyebrow">For contractors and machine shops</p>
+            <h1 class="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl" style="font-stretch: 85%">Send one request. Get every supplier's price side by side.</h1>
+            <p class="mt-5 max-w-xl text-lg text-muted">
+              QuoteRunner emails your material list to all your suppliers, collects their prices from a quote link, an email reply or a PDF, and shows the cheapest way to buy, freight included.
+            </p>
+            <div class="mt-7 flex flex-wrap gap-3">
+              <a href="/signup" class="inline-flex h-12 items-center rounded-ui bg-brand px-5 text-base font-medium text-brand-fg shadow-sm hover:bg-brand/88">Start free</a>
+              <a href="/tools/rfq-builder" class="inline-flex h-12 items-center rounded-ui border border-line-strong bg-surface px-5 text-base font-medium hover:bg-surface-2">Try the list cleaner</a>
+            </div>
+            <p class="mt-4 text-sm text-muted">Free for 3 requests a month. Your suppliers don't need an account.</p>
+          </div>
+
+          <figure class="min-w-0 rounded-ui border border-line bg-surface shadow-sm">
+            <figcaption class="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-3">
+              <span class="font-mono text-xs font-semibold text-muted">RFQ-0042 · Unit 4 rough-in</span>
+              <span class="rounded-full bg-good-soft px-2 py-0.5 text-xs font-medium text-good">3 of 3 answered</span>
+            </figcaption>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse text-sm">
+                <thead>
+                  <tr class="bg-surface-2 text-left text-xs tracking-wide text-muted uppercase">
+                    <th class="px-3 py-2 font-semibold">Item</th>
+                    <th class="border-l border-line px-3 py-2 font-semibold">Northside</th>
+                    <th class="border-l border-line px-3 py-2 font-semibold">Valley</th>
+                    <th class="border-l border-line px-3 py-2 font-semibold">Metro</th>
+                  </tr>
+                </thead>
+                <tbody class="font-mono tabular">
+                  <tr class="border-t border-line">
+                    <td class="px-3 py-2 font-sans"><span class="font-medium">3/4" EMT</span><br /><span class="text-xs text-muted">1,200 ft</span></td>
+                    <td class="border-l border-line px-3 py-2">$0.62</td>
+                    <td class="border-l border-line bg-accent-soft px-3 py-2 font-semibold">$0.55</td>
+                    <td class="border-l border-line px-3 py-2">$0.59</td>
+                  </tr>
+                  <tr class="border-t border-line">
+                    <td class="px-3 py-2 font-sans"><span class="font-medium">EMT set screw connectors</span><br /><span class="text-xs text-muted">300 ea</span></td>
+                    <td class="border-l border-line bg-accent-soft px-3 py-2 font-semibold">$0.41</td>
+                    <td class="border-l border-line px-3 py-2">$0.52</td>
+                    <td class="border-l border-line px-3 py-2">$0.47</td>
+                  </tr>
+                  <tr class="border-t border-line">
+                    <td class="px-3 py-2 font-sans"><span class="font-medium">4x4 box, 1-1/2" deep</span><br /><span class="text-xs text-muted">120 ea</span></td>
+                    <td class="border-l border-line px-3 py-2">$2.40</td>
+                    <td class="border-l border-line px-3 py-2">$2.30</td>
+                    <td class="border-l border-line bg-accent-soft px-3 py-2 font-semibold">$2.18</td>
+                  </tr>
+                  <tr class="border-t border-line">
+                    <td class="px-3 py-2 font-sans"><span class="font-medium">12/2 NM-B, 250 ft roll</span><br /><span class="text-xs text-muted">8 roll</span></td>
+                    <td class="border-l border-line bg-accent-soft px-3 py-2 font-semibold">$118.00</td>
+                    <td class="border-l border-line px-3 py-2 text-muted">no bid</td>
+                    <td class="border-l border-line px-3 py-2">$124.50</td>
+                  </tr>
+                  <tr class="border-t border-line bg-surface-2 font-semibold">
+                    <td class="px-3 py-2 font-sans text-xs tracking-wide text-muted uppercase">Total + freight</td>
+                    <td class="border-l border-line px-3 py-2">$2,290.00</td>
+                    <td class="border-l border-line px-3 py-2 text-muted">incomplete</td>
+                    <td class="border-l border-line px-3 py-2">$2,368.10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-2 border-t border-line px-4 py-3 text-sm">
+              <span>Cheapest way to buy: <strong class="font-mono tabular">$2,214.40</strong> from 2 suppliers</span>
+              <span class="text-good">$75.60 less than one supplier</span>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="how" class="border-y border-line bg-surface" style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+        <div class="mx-auto max-w-6xl py-14">
+          <h2 class="text-3xl font-bold tracking-tight">How it works</h2>
+          <ol class="mt-8 grid gap-8 md:grid-cols-3">
+            <li>
+              <p class="font-mono text-sm font-semibold text-brand-ink">1</p>
+              <h3 class="mt-1 text-lg font-semibold">Paste your list</h3>
+              <p class="mt-2 text-muted">Copy it from a text, an email, a takeoff or a spreadsheet. QuoteRunner turns it into clean lines with quantities, units and part numbers.</p>
+            </li>
+            <li>
+              <p class="font-mono text-sm font-semibold text-brand-ink">2</p>
+              <h3 class="mt-1 text-lg font-semibold">Suppliers answer their way</h3>
+              <p class="mt-2 text-muted">Each supplier gets an email with a quote link. They type prices on their phone, or reply with their usual PDF. Slow ones get a reminder before the deadline.</p>
+            </li>
+            <li>
+              <p class="font-mono text-sm font-semibold text-brand-ink">3</p>
+              <h3 class="mt-1 text-lg font-semibold">Award and send POs</h3>
+              <p class="mt-2 text-muted">One table shows every price, lead time and freight charge. Pick the cheapest supplier per line or overall, then email the purchase orders in a click.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+        <div class="mx-auto grid max-w-6xl gap-x-10 gap-y-8 py-14 md:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <h3 class="font-semibold">Reads quotes from email and PDF</h3>
+            <p class="mt-1 text-sm text-muted">Forwarded replies and attached PDFs are read into the comparison automatically. You check the prices before anything counts.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold">Freight-aware split awards</h3>
+            <p class="mt-1 text-sm text-muted">Splitting an order only pays when the savings beat the extra delivery charge. QuoteRunner does that math for you.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold">Need-by dates that matter</h3>
+            <p class="mt-1 text-sm text-muted">Bids whose lead time misses your date are flagged, and can be left out of the award with one switch.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold">What you paid last time</h3>
+            <p class="mt-1 text-sm text-muted">Every quote builds your price history, so you see last-paid prices while you write the next request.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold">Phone quotes count too</h3>
+            <p class="mt-1 text-sm text-muted">Still calling your rep? Type the numbers in and they sit in the same table as everyone else's.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold">Private by design</h3>
+            <p class="mt-1 text-sm text-muted">Suppliers only ever see your request and their own prices. Never each other's.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="border-y border-line bg-surface" style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+        <div class="mx-auto max-w-6xl py-14">
+          <h2 class="text-3xl font-bold tracking-tight">Pricing</h2>
+          <p class="mt-2 text-muted">Paid plans start with a 14-day free trial. Pay yearly and get two months free.</p>
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <div class="flex flex-col rounded-ui border border-line bg-bg p-6">
+              <h3 class="text-lg font-semibold">Free</h3>
+              <p class="mt-1 text-sm text-muted">Try it on a real job.</p>
+              <p class="mt-4 font-display text-4xl font-bold">$0</p>
+              <ul class="mt-5 flex flex-1 flex-col gap-2 text-sm">
+                <li>3 requests a month</li>
+                <li>Up to 3 suppliers per request</li>
+                <li>Quote links and side-by-side comparison</li>
+                <li>10 AI quote reads a month</li>
+              </ul>
+              <a href="/signup" class="mt-6 inline-flex h-10 items-center justify-center rounded-ui border border-line-strong bg-surface text-sm font-medium hover:bg-surface-2">Start free</a>
+            </div>
+            <div class="flex flex-col rounded-ui border border-brand/50 bg-bg p-6 ring-1 ring-brand/30">
+              <h3 class="text-lg font-semibold">Pro</h3>
+              <p class="mt-1 text-sm text-muted">For the person who buys materials every week.</p>
+              <p class="mt-4 font-display text-4xl font-bold">$149<span class="text-base font-normal text-muted">/mo</span></p>
+              <ul class="mt-5 flex flex-1 flex-col gap-2 text-sm">
+                <li>Unlimited requests</li>
+                <li>Up to 25 suppliers per request</li>
+                <li>Automatic reminders to slow suppliers</li>
+                <li>Purchase orders emailed to suppliers</li>
+                <li>Price history and last-paid prices</li>
+                <li>500 AI quote reads a month, 2 users</li>
+              </ul>
+              <a href="/signup" class="mt-6 inline-flex h-10 items-center justify-center rounded-ui bg-brand text-sm font-medium text-brand-fg hover:bg-brand/88">Start 14-day trial</a>
+            </div>
+            <div class="flex flex-col rounded-ui border border-line bg-bg p-6">
+              <h3 class="text-lg font-semibold">Team</h3>
+              <p class="mt-1 text-sm text-muted">Estimators, PMs and purchasing together.</p>
+              <p class="mt-4 font-display text-4xl font-bold">$299<span class="text-base font-normal text-muted">/mo</span></p>
+              <ul class="mt-5 flex flex-1 flex-col gap-2 text-sm">
+                <li>Everything in Pro</li>
+                <li>Up to 50 suppliers per request</li>
+                <li>10 users</li>
+                <li>2,000 AI quote reads a month</li>
+                <li>Priority support</li>
+              </ul>
+              <a href="/signup" class="mt-6 inline-flex h-10 items-center justify-center rounded-ui border border-line-strong bg-surface text-sm font-medium hover:bg-surface-2">Start 14-day trial</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+        <div class="mx-auto max-w-3xl py-14">
+          <h2 class="text-3xl font-bold tracking-tight">Questions</h2>
+          <div class="mt-6 divide-y divide-line border-y border-line">
+            <details class="group py-4">
+              <summary class="cursor-pointer list-none font-medium">Do my suppliers need an account?</summary>
+              <p class="mt-2 text-muted">No. They get an email with a private link and enter prices in a couple of minutes, or simply reply with their usual quote.</p>
+            </details>
+            <details class="group py-4">
+              <summary class="cursor-pointer list-none font-medium">What if a supplier only sends a PDF?</summary>
+              <p class="mt-2 text-muted">Forward it or upload it. QuoteRunner reads the prices, lead times and freight into your comparison and highlights anything it isn't sure about.</p>
+            </details>
+            <details class="group py-4">
+              <summary class="cursor-pointer list-none font-medium">Can suppliers see each other's prices?</summary>
+              <p class="mt-2 text-muted">Never. Each supplier only sees your request and their own answer.</p>
+            </details>
+            <details class="group py-4">
+              <summary class="cursor-pointer list-none font-medium">Does it work for machine shops and maintenance teams?</summary>
+              <p class="mt-2 text-muted">Yes. Bar stock, plate, tooling, fasteners and MRO supplies work the same way. Part numbers are kept, and you can mark lines where only the exact item will do.</p>
+            </details>
+            <details class="group py-4">
+              <summary class="cursor-pointer list-none font-medium">Can I cancel anytime?</summary>
+              <p class="mt-2 text-muted">Yes. Plans are month to month, and you keep the free plan and your history if you cancel.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-brand text-brand-fg" style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+        <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-6 py-12">
+          <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Send your next material list to every supplier at once.</h2>
+          <a href="/signup" class="inline-flex h-12 items-center rounded-ui bg-accent px-6 text-base font-semibold text-[#1a1f28] hover:opacity-90">Start free</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-line" style="padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right))">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 py-8 text-sm text-muted">
+        <span>© 2026 QuoteRunner</span>
+        <span class="flex gap-4">
+          <a href="/tools/rfq-builder" class="hover:text-fg">Material list cleaner</a>
+          <a href="/login" class="hover:text-fg">Sign in</a>
+          <a href="mailto:support@quoterunner.app" class="hover:text-fg">support@quoterunner.app</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

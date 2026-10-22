@@ -3,6 +3,9 @@ import { defineConfig } from "vitest/config";
 
 const r = (p: string) => fileURLToPath(new URL(p, import.meta.url));
 
+// node:sqlite still prints an ExperimentalWarning on Node 22; test workers inherit this.
+process.env.NODE_OPTIONS = [process.env.NODE_OPTIONS, "--disable-warning=ExperimentalWarning"].filter(Boolean).join(" ");
+
 export default defineConfig({
   resolve: {
     alias: {

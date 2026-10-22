@@ -45,9 +45,13 @@ export function createCoreContext(opts: ContextOptions): CoreContext {
   return { env: opts.env, db, mailer, ai, stripe, product: opts.product, now };
 }
 
-/** Loads `.env` from the working directory if present (real environment variables win). */
-export function loadDotEnv(path = ".env"): void {
-  if (existsSync(path)) process.loadEnvFile(path);
+/**
+ * Loads env files from the working directory, earlier files first: a product's own file
+ * (`.env.quoterunner`) before the shared `.env`. A variable that is already set is never
+ * overwritten, so real environment variables beat both files.
+ */
+export function loadDotEnv(...paths: string[]): void {
+  for (const path of paths.length ? paths : [".env"]) if (existsSync(path)) process.loadEnvFile(path);
 }
 
 export interface Job {

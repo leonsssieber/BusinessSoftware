@@ -61,7 +61,7 @@ function AccountBlock({ onNavigate }: { onNavigate?: () => void }) {
       ) : (
         <div className="min-w-0">
           <p className="truncate text-sm font-semibold">{session.org.name}</p>
-          <p className="text-xs text-muted capitalize">{session.org.plan} plan</p>
+          <p className="text-xs text-muted">{session.org.plan.charAt(0).toUpperCase() + session.org.plan.slice(1)} plan</p>
         </div>
       )}
       {isFree ? (
@@ -111,8 +111,8 @@ export function AppShell({ brand, nav }: { brand: Brand; nav: NavItem[] }) {
   useEffect(() => setOpen(false), [location.pathname]);
 
   return (
-    <div className="min-h-dvh lg:grid lg:grid-cols-[248px_minmax(0,1fr)]">
-      <aside className="sticky top-0 hidden h-dvh flex-col gap-6 border-r border-line bg-surface px-4 py-5 lg:flex">
+    <div className="min-h-dvh lg:grid lg:grid-cols-[248px_minmax(0,1fr)] print:block">
+      <aside className="sticky top-0 hidden h-dvh flex-col gap-6 border-r border-line bg-surface px-4 py-5 lg:flex print:hidden">
         <Link to="/app" className="px-2">
           {brand.logo}
         </Link>
@@ -123,7 +123,7 @@ export function AppShell({ brand, nav }: { brand: Brand; nav: NavItem[] }) {
       </aside>
 
       <header
-        className="sticky top-0 z-30 flex items-center justify-between border-b border-line bg-surface/95 py-3 backdrop-blur lg:hidden"
+        className="sticky top-0 z-30 flex items-center justify-between border-b border-line bg-surface/95 py-3 backdrop-blur lg:hidden print:hidden"
         style={{
           paddingLeft: "max(16px, env(safe-area-inset-left))",
           paddingRight: "max(16px, env(safe-area-inset-right))",
