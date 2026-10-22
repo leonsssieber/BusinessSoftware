@@ -12,6 +12,7 @@
     "@anthropic-ai/sdk": "^1.1.0",
     "@hono/node-server": "^2.1.5",
     "hono": "^4.13.13",
+    "lucide-react": "^1.61.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router": "^8.5.0",
@@ -19,6 +20,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.5",
     "@types/react": "^19.3.0",

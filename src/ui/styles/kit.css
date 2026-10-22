@@ -1,0 +1,85 @@
+/*
+ * Shared design-system plumbing. Each product's theme.css defines the raw --k-* tokens
+ * (light values on :root, dark values under prefers-color-scheme and [data-theme]) and this
+ * file maps them onto Tailwind utilities: bg-surface, text-muted, border-line, font-display...
+ */
+@theme inline {
+  --color-bg: var(--k-bg);
+  --color-surface: var(--k-surface);
+  --color-surface-2: var(--k-surface-2);
+  --color-fg: var(--k-fg);
+  --color-muted: var(--k-muted);
+  --color-line: var(--k-line);
+  --color-line-strong: var(--k-line-strong);
+  --color-brand: var(--k-brand);
+  --color-brand-fg: var(--k-brand-fg);
+  --color-brand-soft: var(--k-brand-soft);
+  --color-brand-ink: var(--k-brand-ink);
+  --color-accent: var(--k-accent);
+  --color-good: var(--k-good);
+  --color-good-soft: var(--k-good-soft);
+  --color-warn: var(--k-warn);
+  --color-warn-soft: var(--k-warn-soft);
+  --color-bad: var(--k-bad);
+  --color-bad-soft: var(--k-bad-soft);
+  --font-display: var(--k-font-display);
+  --font-sans: var(--k-font-sans);
+  --font-mono: var(--k-font-mono);
+  --radius-ui: var(--k-radius);
+}
+
+@layer base {
+  html {
+    background: var(--k-bg);
+    color: var(--k-fg);
+  }
+  body {
+    margin: 0;
+    font-family: var(--k-font-sans);
+    background: var(--k-bg);
+    color: var(--k-fg);
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--k-font-display);
+    text-wrap: balance;
+    line-height: 1.2;
+  }
+  :focus-visible {
+    outline: 2px solid var(--k-focus);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--k-brand-soft);
+  }
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--k-muted);
+}
